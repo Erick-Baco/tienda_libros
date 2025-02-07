@@ -1,0 +1,33 @@
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: .docker/Dockerfile
+    container_name: node_app
+    ports:
+      - "3000:4000"
+    volumes:
+      - ./controllers:/app/controllers
+      - ./models:/app/models
+      - ./routes:/app/routes
+      - ./views:/app/views
+      - ./public:/app/public
+      - .:/app
+      - /app/node_modules # Para evitar que los node_modules locales sobrescriban los del contenedor
+
+
+  db:
+    image: mariadb:latest
+    container_name: mariadb_container
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: mypassword
+      MYSQL_DATABASE: mydatabase
+    ports:
+      - "3306:3306"
+    volumes:
+      - mariadb_data:/var/lib/mysql
+
+volumes:
+  mariadb_data:
