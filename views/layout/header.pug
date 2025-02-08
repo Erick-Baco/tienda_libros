@@ -1,0 +1,19 @@
+nav.navbar.navbar-expand-lg.bg-body-tertiary
+  .container-fluid
+    a.navbar-brand(href="/home") Libros FES
+    button.navbar-toggler(type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation")
+      span.navbar-toggler-icon
+    .collapse.navbar-collapse(id="navbarSupportedContent")
+      ul.navbar-nav.me-auto.mb-2.mb-lg-0
+        li.nav-item.dropdown
+          a.nav-link.dropdown-toggle(href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false") Categorías
+          ul.dropdown-menu
+            li
+              a.dropdown-item(href="/categorias/romance") Romance
+            li
+              a.dropdown-item(href="/categorias/novelas") Novelas
+            li
+              a.dropdown-item(href="/categorias/latinoamericanos") Latinoaméricanos
+      form.d-flex(role="search" action="/search" method="post")
+        input.form-control.me-2(type="search" placeholder="Search" aria-label="Search" name="query")
+        button.btn.btn-outline-success(type="submit") Search

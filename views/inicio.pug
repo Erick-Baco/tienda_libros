@@ -1,6 +1,43 @@
 extends ./layout/index.pug
 
 block content
-  h2 Página de Inicio
-  p Bienvenido a la página de inicio. Aquí puedes encontrar información relevante.
-  a(href="/") Volver al inicio
+  .div-carrusel   
+    #carouselExample.carousel.slide
+      .carousel-inner
+        .carousel-item.active
+          img.d-block.w-100(src="/image/carr1.webp" alt="carr1")
+        .carousel-item
+          img.d-block.w-100(src="/image/carr2.webp" alt="carr2")
+        .carousel-item
+          img.d-block.w-100(src="/image/carr3.webp" alt="carr3")
+      button.carousel-control-prev(type="button" data-bs-target="#carouselExample" data-bs-slide="prev")
+        span.carousel-control-prev-icon(aria-hidden="true")
+        span.visually-hidden Previous
+      button.carousel-control-next(type="button" data-bs-target="#carouselExample" data-bs-slide="next")
+        span.carousel-control-next-icon(aria-hidden="true")
+        span.visually-hidden Next
+  hr
+  .div-sugerencias.container.text-center
+    .row.overflow-hidden.gy-5
+      .col
+        .card(style="width: 18rem;")
+          img.card-img-top(src="..." alt="...")
+          .card-body
+            p.card-text Some quick example text to build on the card title and make up the bulk of the card's content.
+      .col
+        .card(style="width: 18rem;")
+          img.card-img-top(src="..." alt="...")
+          .card-body
+            p.card-text Some quick example text to build on the card title and make up the bulk of the card's content.
+      .col
+        .card(style="width: 18rem;")
+          img.card-img-top(src="..." alt="...")
+          .card-body
+            p.card-text Some quick example text to build on the card title and make up the bulk of the card's content.  
+      .col
+        .card(style="width: 18rem;")
+          img.card-img-top(src="..." alt="...")
+          .card-body
+            p.card-text Some quick example text to build on the card title and make up the bulk of the card's content.
+  hr
+  

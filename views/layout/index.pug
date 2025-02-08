@@ -3,15 +3,14 @@ html
   head
     meta(charset="UTF-8")
     meta(name="viewport" content="width=device-width, initial-scale=1.0")
-    title Mi Aplicación
-    link(rel="stylesheet", href="/css/style.css")  
+    title Libros FES
+
+    link(rel="stylesheet", href="/bootstrap/css/bootstrap.min.css")
+    script(src="/bootstrap/js/bootstrap.bundle.min.js")
+    link(rel="stylesheet", href="/css/colors.css")  
+        
   body
-    header
-      h1 Bienvenido a Mi Aplicación
-      nav
-        ul
-          li: a(href="/") Inicio
-          li: a(href="/inicio") Página de Inicio
+    include header
     main
       block content
     footer
