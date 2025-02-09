@@ -1,27 +1,26 @@
 extends ../layout/index.pug 
 
 block content
-    .col
-        .container.d-flex.justify-content-center.align-items.center.p-5
-            table.table 
-                thead 
-                    tr
-                        th(scope="col") #
-                        th(scope="col") Imagen
-                        th(scope="col") Titulo
-                        th(scope="col") Autor 
-                        th(scope="col") Editorial 
-                        th(scope="col") ISBN 
-                        th(scope="col") Precio
-                        th(scope="col") Stock
-                thbody 
-                    tr 
-                        th(scope="row") 1
-                        td 
-                            img(src="/image/libro1.webp" alt="libro1")
-                        td El principito
-                        td Antoine de Saint-Exupéry
-                        td Salamandra
-                        td 978-84-7888-000-0
-                        td $150.00
-                        td 10
+    .div-sugerencias.container.text-center
+        .row.overflow-hidden.gy-5
+            .col
+                .card(style="width: 18rem;")
+                img.card-img-top(src="..." alt="...")
+                .card-body
+                    p.card-text Some quick example text to build on the card title and make up the bulk of the card's content.
+            .col
+                .card(style="width: 18rem;")
+                img.card-img-top(src="..." alt="...")
+                .card-body
+                    p.card-text Some quick example text to build on the card title and make up the bulk of the card's content.
+            .col
+                .card(style="width: 18rem;")
+                img.card-img-top(src="..." alt="...")
+                .card-body
+                    p.card-text Some quick example text to build on the card title and make up the bulk of the card's content.  
+            .col
+                .card(style="width: 18rem;")
+                img.card-img-top(src="..." alt="...")
+                .card-body
+                    p.card-text Some quick example text to build on the card title and make up the bulk of the card's content.
+    hr

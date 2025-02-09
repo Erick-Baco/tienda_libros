@@ -1,0 +1,99 @@
+doctype html
+html
+  head
+    title CRUD de Libros
+    style.
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 20px;
+        padding: 20px;
+      }
+      .container {
+        max-width: 900px;
+        margin: auto;
+        background: white;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      h1 {
+        text-align: center;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+      }
+      th, td {
+        border: 1px solid #ddd;
+        padding: 10px;
+        text-align: left;
+      }
+      th {
+        background: #333;
+        color: white;
+      }
+      img {
+        width: 50px;
+        height: auto;
+      }
+      .btn {
+        padding: 5px 10px;
+        text-decoration: none;
+        color: white;
+        border-radius: 3px;
+        margin-right: 5px;
+        display: inline-block;
+      }
+      .btn-edit {
+        background: #f0ad4e;
+      }
+      .btn-delete {
+        background: #d9534f;
+      }
+      .btn-add {
+        display: inline-block;
+        background: #5cb85c;
+        padding: 10px;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        margin-bottom: 15px;
+      }
+
+  body
+    .container
+      h1 CRUD de Libros
+      a.btn-add(href="/libros/nuevo") ➕ Agregar Libro
+
+      table
+        thead
+          tr
+            th ID
+            th Título
+            th Imagen
+            th Autor
+            th Editorial
+            th ISBN
+            th Precio
+            th Stock
+            th Categorías
+            th Acciones
+        tbody
+          each libro in libros
+            tr
+              td= libro.id_libro
+              td= libro.titulo
+              td 
+                img(src=libro.imagen, alt="Imagen de " + libro.titulo)
+              td= libro.autor
+              td= libro.editorial
+              td= libro.ISBN
+              td= libro.precio
+              td= libro.stock
+              //td= libro.libros_categorias.id_categoria
+              //td
+                a.btn.btn-edit(href=`/libros/editar/${libro.id_libro}`) ✏️ Editar
+                form(action=`/libros/eliminar/${libro.id_libro}` method="POST" style="display:inline")
+                  button.btn.btn-delete(type="submit" onclick="return confirm('¿Eliminar este libro?')") 🗑 Eliminar

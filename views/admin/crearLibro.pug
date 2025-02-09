@@ -1,0 +1,40 @@
+doctype html
+html
+  body
+    h2 Agregar un Nuevo Libro
+
+    if error
+      .alert.alert-danger #{error}
+
+    form(action="/admin/crearLibro" method="POST" enctype="multipart/form-data")
+      fieldset 
+        .form-group
+          label(for="titulo") Título:
+          input.form-control(type="text" name="titulo" required)
+
+        .form-group
+          label(for="autor") Autor:
+          input.form-control(type="text" name="autor" required)
+
+        .form-group
+          label(for="editorial") Editorial:
+          input.form-control(type="text" name="editorial" required)
+
+        .form-group
+          label(for="ISBN") ISBN:
+          input.form-control(type="text" name="ISBN" required)
+
+        .form-group
+          label(for="precio") Precio:
+          input.form-control(type="number" name="precio" step="0.01" required)
+
+        .form-group
+          label(for="stock") Stock:
+          input.form-control(type="number" name="stock" required)
+
+        .form-group
+          label(for="imagen") Imagen del libro:
+          input.form-control(type="file" name="imagen" accept="image/*" required)
+
+        .form-group
+          button.btn.btn-primary(type="submit") Agregar Libro
