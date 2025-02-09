@@ -8,10 +8,12 @@ html
     link(rel="stylesheet", href="/bootstrap/css/bootstrap.min.css")
     script(src="/bootstrap/js/bootstrap.bundle.min.js")
     link(rel="stylesheet", href="/css/colors.css")  
-        
-  body
+
+   
+  body.container.vh-100.m-0.p-0
     include header
-    main
+    main.row.min-vw-100.p-0.m-0
+      include nav
       block content
-    footer
-      p &copy; 2025 Mi Aplicación
+
+
