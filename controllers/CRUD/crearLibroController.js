@@ -1,6 +1,4 @@
-import db from "../../config/db.js";
 import Libro from "../../model/libros.js";
-import Libros_Categorias from "../../model/libros_categorias.js";
 import multer from "multer";
 import path from "path";
 
@@ -21,6 +19,7 @@ const registrando = async (req, res) => {
       autor: req.body.autor,
       editorial: req.body.editorial,
       ISBN: req.body.ISBN,
+      categoria: req.body.categoria,
       precio: req.body.precio,
       stock: req.body.stock,
     });

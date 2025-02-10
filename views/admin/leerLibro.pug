@@ -65,7 +65,7 @@ html
   body
     .container
       h1 CRUD de Libros
-      a.btn-add(href="/libros/nuevo") ➕ Agregar Libro
+      a.btn-add(href="/admin/crearLibro") Agregar Libro
 
       table
         thead
@@ -76,10 +76,11 @@ html
             th Autor
             th Editorial
             th ISBN
+            th Categoria
             th Precio
             th Stock
-            th Categorías
-            th Acciones
+            th Actualizar
+            th Eliminar
         tbody
           each libro in libros
             tr
@@ -90,10 +91,14 @@ html
               td= libro.autor
               td= libro.editorial
               td= libro.ISBN
+              td= libro.categoria
               td= libro.precio
               td= libro.stock
-              //td= libro.libros_categorias.id_categoria
-              //td
-                a.btn.btn-edit(href=`/libros/editar/${libro.id_libro}`) ✏️ Editar
-                form(action=`/libros/eliminar/${libro.id_libro}` method="POST" style="display:inline")
-                  button.btn.btn-delete(type="submit" onclick="return confirm('¿Eliminar este libro?')") 🗑 Eliminar
+              td
+                a(href=`/admin/actualizarLibro/${libro.id_libro}`) Actualizar
+              td
+                form(method="post" action="/admin/eliminarLibro" onsubmit="return confirm('¿Eliminar este libro?')") 
+                  input(type="hidden" name="id_libro" value=libro.id_libro)
+                  button(type="submit") Eliminar
+
+

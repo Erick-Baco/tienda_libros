@@ -5,6 +5,7 @@ import inicio from "./routes/inicio_router.js";
 import router_Categorias from "./routes/categorias_router.js";
 import router_Search from "./routes/search_router.js";
 import router_admin from "./routes/admin_router.js";
+import router_Login from "./routes/login_router.js";
 import db from "./config/db.js";
 
 // Configurar __dirname en ES Modules
@@ -28,10 +29,12 @@ app.set("views", "./views");
 app.use(express.static("public"));
 
 // Rutas
+app.use("/", router_Login);
+app.use("/login", router_Login);
 app.use("/home", inicio);
 app.use("/categorias", router_Categorias);
 app.use("/search", router_Search);
-app.use("/admin", router_admin);
+app.use("/admin", router_admin)
 app.use("/image", express.static("public/image"));
 
 const port = process.env.PORT || 4000;

@@ -1,5 +1,4 @@
 import Libro from "../../model/libros.js";
-import Libros_Categorias from "../../model/libros_categorias.js";
 
 const renderizarLeerLibro = async (req, res) => {
   try {
@@ -9,7 +8,7 @@ const renderizarLeerLibro = async (req, res) => {
       }, */
     });
 
-    console.log(libros);
+    //console.log(libros);
     res.render("admin/leerLibro", { libros });
   } catch (error) {
     console.error("Error al obtener libros:", error);

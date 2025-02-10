@@ -1,4 +1,4 @@
-import { Sequelize } from "sequelize";
+/* import { Sequelize } from "sequelize";
 import db from "../config/db.js";
 
 // Definir el modelo Categoria
@@ -22,3 +22,4 @@ export const Categoria = db.define(
 );
 
 export default Categoria;
+ */

@@ -1,1 +1,44 @@
-h1 actualizar
+doctype html
+html
+  body
+    h2 Actualizar libro
+
+    if error
+      .alert.alert-danger #{error}
+
+    form(method="POST" action=`/admin/actualizarLibro/${valores.id_libro}` enctype="multipart/form-data")
+      fieldset 
+        .form-group
+          label(for="titulo") Título:
+          input.form-control(type="text" name="titulo" value=valores.titulo required)
+
+        .form-group
+          label(for="autor") Autor:
+          input.form-control(type="text" name="autor" value=valores.autor required)
+
+        .form-group
+          label(for="editorial") Editorial:
+          input.form-control(type="text" name="editorial" value=valores.editorial required)
+
+        .form-group
+          label(for="ISBN") ISBN:
+          input.form-control(type="text" name="ISBN" value=valores.ISBN required)
+
+        .form-group
+          label(for="categoria") Categoria:
+          input.form-control(type="text" name="categoria" value=valores.categoria required)  
+
+        .form-group
+          label(for="precio") Precio:
+          input.form-control(type="number" name="precio" step="0.01" value=valores.precio required)
+
+        .form-group
+          label(for="stock") Stock:
+          input.form-control(type="number" name="stock" value=valores.stock required)
+
+        .form-group
+          label(for="imagen") Imagen del libro:
+          input.form-control(type="file" name="imagen")
+
+        .form-group
+          button.btn.btn-primary(type="submit" class="button") Guardar cambios

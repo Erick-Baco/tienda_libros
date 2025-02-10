@@ -25,6 +25,10 @@ html
           input.form-control(type="text" name="ISBN" required)
 
         .form-group
+          label(for="categoria") Categoria:
+          input.form-control(type="text" name="categoria" required)  
+
+        .form-group
           label(for="precio") Precio:
           input.form-control(type="number" name="precio" step="0.01" required)
 
@@ -38,3 +42,6 @@ html
 
         .form-group
           button.btn.btn-primary(type="submit") Agregar Libro
+        
+        .form-group
+          a.btn-add(href="/admin/leerLibro") Regresar

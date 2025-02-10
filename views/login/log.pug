@@ -1,0 +1,30 @@
+html
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title Libros FES
+
+    link(rel="stylesheet", href="/bootstrap/css/bootstrap.min.css")
+    script(src="/bootstrap/js/bootstrap.bundle.min.js")
+    link(rel="stylesheet", href="/css/colors.css")  
+
+block content
+
+  nav.navbar.bg-dark
+    .container-fluid
+      a.navbar-brand.link-light(href="#")
+        img(src="/image/logo.webp" alt="Logo" width="30" height="24" class="d-inline-block align-text-top")
+        |  Book Manager
+
+  .container.text-center.d-flex.justify-content-center.align-items-center.h-75
+    form(role="login" action="/login" method="post")
+      .mb-3
+        label.form-label(for="exampleInputEmail1") Email address
+        input#exampleInputEmail1.form-control(type="email" aria-describedby="emailHelp")
+        div#emailHelp.form-text We'll never share your email with anyone else.
+      
+      .mb-3
+        label.form-label(for="exampleInputPassword1") Password
+        input#exampleInputPassword1.form-control(type="password")
+      
+      button.btn.btn-primary(type="submit") Submit

@@ -1,4 +1,4 @@
-import { Sequelize } from "sequelize";
+/* import { Sequelize } from "sequelize";
 import db from "../config/db.js";
 
 // Definir el modelo LibroCategoria
@@ -29,3 +29,4 @@ export const Libros_Categorias = db.define(
 );
 
 export default Libros_Categorias;
+ */

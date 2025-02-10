@@ -1,4 +1,4 @@
-import { Sequelize } from "sequelize";
+/* import { Sequelize } from "sequelize";
 
 import Libro from "./libros.js";
 import Categoria from "./categorias.js";
@@ -11,3 +11,4 @@ Categoria.hasMany(Libros_Categorias, { foreignKey: "id_categoria" });
 Libros_Categorias.belongsTo(Categoria, { foreignKey: "id_categoria" });
 
 export { Libro, Categoria, Libros_Categorias };
+ */

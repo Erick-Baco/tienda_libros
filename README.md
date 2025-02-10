@@ -21,18 +21,19 @@ La información debe permanecer persistente independientemente de que el sistema
 ## Requisitos previos
 
 Asegúrate de tener instalado lo siguiente:
-- [Node.js](https://nodejs.org/) (versión recomendada: 16 o superior)
-- [MariaDB](https://mariadb.org/) para la base de datos
+
+- [Node.js](https://nodejs.org/) (versión recomendada: 20.18.2 o superior)
+- [MariaDB](https://mariadb.org/) para la base de datos 10.11.10 o superior
 
 ## Instalación
 
 1. Clona este repositorio:
    ```sh
-   git clone <URL_DEL_REPOSITORIO>
+   git clone <https://github.com/Erick-Baco/tienda_libros.git>
    ```
 2. Accede al directorio del proyecto:
    ```sh
-   cd nombre-del-proyecto
+   cd tienda_libros
    ```
 3. Instala las dependencias necesarias:
    ```sh
@@ -64,10 +65,14 @@ Este proyecto utiliza las siguientes librerías:
 ## Uso
 
 Para iniciar el servidor, ejecuta:
+
 ```sh
-npm start
+mysql -u root -p
+source esquema.sql
+npm run server
 ```
-Por defecto, el servidor se ejecutará en `http://localhost:3000/`.
+
+Por defecto, el servidor se ejecutará en `http://localhost:4000/`.
 
 ## Estructura del Proyecto
 
@@ -80,17 +85,23 @@ Por defecto, el servidor se ejecutará en `http://localhost:3000/`.
 ├── config/             # Configuración de base de datos y entorno
 ├── app.js              # Punto de entrada principal
 ├── .env                # Variables de entorno
+├── esquema.sql         # script para ejecutar la base de datos
 └── package.json        # Configuración del proyecto y dependencias
 ```
 
 ## Contribución
 
 Si deseas contribuir a este proyecto, por favor sigue estos pasos:
+
 1. Realiza un fork del repositorio.
 2. Crea una nueva rama (`git checkout -b feature-nueva`).
 3. Realiza tus cambios y haz commit (`git commit -m 'Descripción del cambio'`).
 4. Envía tus cambios (`git push origin feature-nueva`).
 5. Abre un Pull Request.
+
+## DOCUMENTACION
+
+https://docs.google.com/document/d/1Np10Qsne_sjwfkMKGd2I90kt-4tdwE6jBTfspzBkaC0/edit?usp=sharing
 
 ## Licencia
 
@@ -99,4 +110,3 @@ Este proyecto está bajo la licencia MIT. Puedes consultar el archivo `LICENSE` 
 ---
 
 ¡Gracias por contribuir y usar este proyecto! 🚀
-

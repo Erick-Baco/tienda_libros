@@ -26,6 +26,9 @@ export const Libro = db.define(
       type: Sequelize.STRING,
       unique: true,
     },
+    categoria: {
+      type: Sequelize.STRING,
+    },
     precio: {
       type: Sequelize.DECIMAL(10, 2),
     },
