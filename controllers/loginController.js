@@ -26,16 +26,20 @@ const logear = async (req, res) => {
             // Inicio de sesion validado
             else{
                 const id_rol = user.id_rol;
+                const nombre = user.nombre;
                 // console.log(id_rol); // 1(Admin) - 2(User)
                 
                 // VARIABLE DE SESSION
-                req.session.user = {user: user, id_rol: id_rol}; // Guardar usuario en sesión
-                console.log(req.session.user);
+                req.session.user = {user: user, id_rol: id_rol, nombre: nombre}; // Guardar usuario en sesión
+                // console.log(req.session.user);
+                // console.log(nombre) // Hugo - Eder
                 
                 if(id_rol == 2){
-                    res.redirect("/home")
+                    res.render("inicio", {
+                        nombre: nombre
+                    });
                 }else if(id_rol == 1){
-                    res.redirect("/admin/crearLibro");
+                    res.redirect("/admin/leerLibro");
                 }
 
 

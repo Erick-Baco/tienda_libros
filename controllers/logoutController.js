@@ -14,7 +14,7 @@ const deslogear = async (req, res) => {
         //         return res.status(500).json({ message: "Error regenerating session" });
         //     }
 
-        res.render("login/log")
+        res.redirect("/home")
 
         // });
     });

@@ -38,6 +38,13 @@ app.use(session({
   saveUninitialized: true
 }));
 
+// Middleware para verificar la sesión y mandar datos de sesion a pug
+app.use(function(req, res, next) {
+  res.locals.loggedin = req.session.user; // Terminar variable de pug para mostrar nombre
+   next();  // Usamos 'next()' para continuar el flujo
+});
+
+
 // Rutas
 app.use("/", router_Login);
 app.use("/login", router_Login);

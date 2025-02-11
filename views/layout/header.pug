@@ -10,7 +10,13 @@
               a.nav-link.dropdown-toggle.link-light(href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false") usuario
               ul.dropdown-menu
                 li
+                if loggedin
                   form(role="logout" action="/logout" method="post") 
-                    button.dropdown-item(href="#" type="submit") Cerrar Sesion
+                    button.dropdown-item(href="/home" type="submit") Cerrar Sesion
+                else
+                  form(role="login" action="/login" method="post") 
+                      button.dropdown-item(href="#" type="submit") Iniciar Sesion
+            if loggedin
+              p(style="color:#fff").nav-link  Hola #{nombre}
 
 
