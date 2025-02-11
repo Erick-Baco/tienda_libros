@@ -1,4 +1,5 @@
 import express from "express";
+import { authAdmin } from "../middleware/middleware.js";
 
 import {
   actualizarLibro,
@@ -17,16 +18,16 @@ import { renderizarLeerLibro } from "../controllers/CRUD/leerLibroController.js"
 const router_admin = express.Router();
 
 // actualizar
-router_admin.get("/actualizarLibro/:id", renderizarActualizarLibro);
+router_admin.get("/actualizarLibro/:id", authAdmin, renderizarActualizarLibro);
 //router_admin.post("/actualizarLibro/:id", actualizarLibro);
 router_admin.post("/actualizarLibro/:id", upload.single("imagen"), actualizarLibro);
 
 //crear
-router_admin.get("/crearLibro", renderizarCrearLibro);
+router_admin.get("/crearLibro", authAdmin, renderizarCrearLibro);
 router_admin.post("/crearLibro", upload.single("imagen"), registrando);
 
 //leer principalmente
-router_admin.get("/leerLibro", renderizarLeerLibro);
+router_admin.get("/leerLibro", authAdmin, renderizarLeerLibro);
 
 //eliminar
 router_admin.post("/eliminarLibro", eliminarLibro);

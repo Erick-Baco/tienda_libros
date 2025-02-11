@@ -6,7 +6,10 @@ import router_Categorias from "./routes/categorias_router.js";
 import router_Search from "./routes/search_router.js";
 import router_admin from "./routes/admin_router.js";
 import router_Login from "./routes/login_router.js";
+import router_Logout from "./routes/logout_router.js"
 import db from "./config/db.js";
+import session from "express-session";
+
 
 // Configurar __dirname en ES Modules
 const __filename = fileURLToPath(import.meta.url);
@@ -28,9 +31,17 @@ app.set("views", "./views");
 // Carpeta pública
 app.use(express.static("public"));
 
+// Configurar sesiones
+app.use(session({
+  secret: "clave_secreta",
+  resave: false,
+  saveUninitialized: true
+}));
+
 // Rutas
 app.use("/", router_Login);
 app.use("/login", router_Login);
+app.use("/logout", router_Logout);
 app.use("/home", inicio);
 app.use("/categorias", router_Categorias);
 app.use("/search", router_Search);

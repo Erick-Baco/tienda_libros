@@ -10,7 +10,8 @@ CREATE TABLE roles (
 
 CREATE TABLE usuarios (
   id_usuario INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-  nombres VARCHAR(100) NOT NULL,
+  nombre VARCHAR(100) NOT NULL,
+  apellido VARCHAR(100) NOT NULL,
   correo VARCHAR(100) UNIQUE, 
   contrasena VARCHAR(60) NOT NULL, 
   id_rol INT,
@@ -55,6 +56,17 @@ INSERT INTO libros (titulo, imagen, autor, editorial, ISBN, categoria, precio, s
 ('El Código de la Manifestación', '/image/libros/manifestacion.webp', 'Raimon Samso', 'Obelisco', '9788491111696', 'Desarrollo Personal', 490, 11),
 ('El principito', '/image/libros/principito.webp', 'Antoine de Saint-Exupéry', 'Gandhi editores', '9786078678013', 'Clásico', 199, 18),
 ('Nosotros en la luna', '/image/libros/Nosotros.webp', 'Alice Kellen', 'Planeta', '9786070791666', 'Romance', 486, 17);
+
+/*INSERTANDO ROLES*/
+INSERT INTO roles (tipo) VALUES
+("Administrador"),
+("Usuario");
+
+/*INSERTANDO USUARIOS POR DEFAULT*/
+INSERT INTO usuarios (nombre, apellido, correo, contrasena, id_rol) VALUES
+('Eder', 'Alvarez', 'ederaj30@gmail.com', '1234', '1'),
+("Hugo", 'Perez', 'perez.hugo.3010@gmail.com', '4321', '2');  
+
 
 
 -- Insertando categorías
