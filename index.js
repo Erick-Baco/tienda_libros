@@ -31,12 +31,19 @@ app.set("views", "./views");
 // Carpeta pública
 app.use(express.static("public"));
 
+// Parses URL-encoded bodies
+app.use(express.urlencoded({ extended: true })); 
+
 // Configurar sesiones
-app.use(session({
-  secret: "clave_secreta",
-  resave: false,
-  saveUninitialized: true
-}));
+app.use(
+    session({
+        secret: "yourSecretKey",  // Change this to a secure secret
+        resave: false,  // Don't save session if nothing changed
+        saveUninitialized: false,  // Don't create session until something is stored
+        cookie: { secure: false }, // Set `true` if using HTTPS
+    })
+);
+
 
 // Middleware para verificar la sesión y mandar datos de sesion a pug
 app.use(function(req, res, next) {
@@ -46,10 +53,9 @@ app.use(function(req, res, next) {
 
 
 // Rutas
-app.use("/", router_Login);
+app.use("/", inicio);
 app.use("/login", router_Login);
 app.use("/logout", router_Logout);
-app.use("/home", inicio);
 app.use("/categorias", router_Categorias);
 app.use("/search", router_Search);
 app.use("/admin", router_admin)

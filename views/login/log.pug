@@ -12,13 +12,14 @@ block content
 
   nav.navbar.bg-dark
     .container-fluid
-      a.navbar-brand.link-light(href="/home")
+      a.navbar-brand.link-light(href="/")
         img(src="/image/logo.webp" alt="Logo" width="30" height="24" class="d-inline-block align-text-top")
         |  Book Manager
 
   .container.text-center.d-flex.justify-content-center.align-items-center.h-75
     form(role="login" action="/login" method="post")
       .mb-3
+        p #{error}
         label.form-label(for="exampleInputEmail1") Email address
         input#exampleInputEmail1.form-control(type="email" aria-describedby="emailHelp" name="email")
         div#emailHelp.form-text We'll never share your email with anyone else.

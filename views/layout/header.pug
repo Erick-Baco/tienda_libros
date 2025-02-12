@@ -12,10 +12,9 @@
                 li
                 if loggedin
                   form(role="logout" action="/logout" method="post") 
-                    button.dropdown-item(href="/home" type="submit") Cerrar Sesion
+                    button.dropdown-item(href="/" type="submit") Cerrar Sesion
                 else
-                  form(role="login" action="/login" method="post") 
-                      button.dropdown-item(href="#" type="submit") Iniciar Sesion
+                  a.dropdown-item(href="/login" type="submit") Iniciar Sesion
             if loggedin
               p(style="color:#fff").nav-link  Hola #{nombre}
 

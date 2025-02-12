@@ -11,7 +11,7 @@ const authAdmin = (req, res, next) =>{
         return next()
     }
     
-    return res.redirect("/home")
+    return res.redirect("/")
 }
 
 export {authAdmin}
