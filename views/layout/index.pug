@@ -8,11 +8,16 @@ html
     link(rel="stylesheet", href="/bootstrap/css/bootstrap.min.css")
     script(src="/bootstrap/js/bootstrap.bundle.min.js")
     link(rel="stylesheet", href="/css/colors.css")  
+    style. 
+      .img{
+        width: 100px;
+        height: auto;
+      } 
 
    
   body.container.vh-100.m-0.p-0
     include header
-    main.row.min-vw-100.p-0.m-0
+    main.row.min-vw-100.vh-100.p-0.m-0
       include nav
       block content
 
