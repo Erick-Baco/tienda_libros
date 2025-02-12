@@ -6,12 +6,17 @@ const authAdmin = (req, res, next) =>{
     
     const user = req.session.user
     const id_rol = user.id_rol
+
+    console.log(user);
+    
     
     if(id_rol == 1){
         return next()
     }
     
-    return res.redirect("/")
+    return res.render("inicio", {
+        nombre: user.nombre
+    })
 }
 
 export {authAdmin}
