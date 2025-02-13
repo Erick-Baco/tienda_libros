@@ -1,6 +1,6 @@
 import Usuario from "../model/usuario.js"
 import session from "express-session";
-
+import Libro from "../model/libros.js";
 
 const renderizarLogin = async (req, res) => {
     res.render("login/log");
@@ -19,6 +19,7 @@ const logear = async (req, res) => {
         }
 
         const user = await Usuario.findOne({ where: { correo } });
+        const libros = await Libro.findAll({});
 
         if (!user) {
             console.log("Usuario no encontrado");
@@ -32,10 +33,12 @@ const logear = async (req, res) => {
             return res.render("login/log", { error: "Correo o contraseña incorrectos" });
         }
 
+
         req.session.user = {
             id: user.id_usuario,
             nombre: user.nombre,
-            id_rol: user.id_rol
+            id_rol: user.id_rol,
+            libros: libros
         };
 
         console.log("Session after login:", req.session);
@@ -48,9 +51,10 @@ const logear = async (req, res) => {
 
             // Middleware para verificar la sesión y mandar datos de sesion a pug
             res.locals.loggedin = req.session.user;
+            
 
             if (user.id_rol == 2) {
-                return res.render("inicio", { nombre: user.nombre });
+                return res.render("inicio", { nombre: user.nombre, libros: libros});
             } else if (user.id_rol == 1) {
                 return res.redirect("/admin/leerLibro");
             }

@@ -1,4 +1,5 @@
 import session from "express-session";
+import { nextTick } from "process";
 
 const authAdmin = (req, res, next) =>{
 
@@ -18,5 +19,6 @@ const authAdmin = (req, res, next) =>{
         nombre: user.nombre
     })
 }
+
 
 export {authAdmin}

@@ -16,6 +16,8 @@
                 else
                   a.dropdown-item(href="/login" type="submit") Iniciar Sesion
             if loggedin
-              p(style="color:#fff").nav-link  Hola #{nombre}
+              if nombre
+                p(style="color:#fff").nav-link  Hola #{nombre}
+              
 
 
