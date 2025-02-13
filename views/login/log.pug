@@ -1,31 +1,90 @@
+doctype html
 html
   head
     meta(charset="UTF-8")
     meta(name="viewport" content="width=device-width, initial-scale=1.0")
-    title Libros FES
+    title Bienvenido
 
+    // Importar Bootstrap y Google Fonts
+    link(rel="stylesheet", href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap")
     link(rel="stylesheet", href="/bootstrap/css/bootstrap.min.css")
     script(src="/bootstrap/js/bootstrap.bundle.min.js")
-    link(rel="stylesheet", href="/css/colors.css")  
 
-block content
+    style.
+      * {
+        font-family: 'Poppins', sans-serif;
+      }
 
-  nav.navbar.bg-dark
-    .container-fluid
-      a.navbar-brand.link-light(href="/")
-        img(src="/image/logo.webp" alt="Logo" width="30" height="24" class="d-inline-block align-text-top")
-        |  Book Manager
+      body {
+        background: linear-gradient(135deg, #f5e1c8, #AB7F5D);
+        margin: 0;
+        padding-top: 70px; 
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
 
-  .container.text-center.d-flex.justify-content-center.align-items-center.h-75
-    form(role="login" action="/login" method="post")
-      .mb-3
-        p #{error}
-        label.form-label(for="exampleInputEmail1") Email address
-        input#exampleInputEmail1.form-control(type="email" aria-describedby="emailHelp" name="email")
-        div#emailHelp.form-text We'll never share your email with anyone else.
-      
-      .mb-3
-        label.form-label(for="exampleInputPassword1") Password
-        input#exampleInputPassword1.form-control(type="password" name="password")
-      
-      button.btn.btn-primary(type="submit") Submit
+    
+      .navbar {
+        background-color: #6f4e37 !important; 
+        padding: 10px;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+      }
+
+      .navbar-brand {
+        font-size: 1.2rem;
+        font-weight: 600;
+      }
+
+      .container-form {
+        background: #fff;
+        padding: 40px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 400px;
+      }
+
+      .form-control {
+        border: 2px solid #6f4e37; 
+      }
+
+      .btn-primary {
+        background-color: #8B5A2B;
+        border-color: #8B5A2B;
+        font-weight: 600;
+      }
+
+      .btn-primary:hover {
+        background-color: #6f4e37;
+        border-color: #6f4e37;
+      }
+
+  body
+    // Navbar fijo arriba
+    nav.navbar.navbar-dark
+      .container-fluid
+        a.navbar-brand.link-light(href="/")
+          img(src="/image/logo.webp" alt="Logo" width="30" height="24" class="d-inline-block align-text-top")
+          |  Book Manager
+
+    // Contenedor centrado
+    .container.d-flex.justify-content-center.align-items-center
+      .container-form
+        form(role="login" action="/login" method="post")
+          .mb-3
+            if error
+              p.text-danger #{error}
+            label.form-label(for="exampleInputEmail1") Correo electrónico
+            input#exampleInputEmail1.form-control(type="email" aria-describedby="emailHelp" name="email" required)
+            div#emailHelp.form-text Nunca compartiremos tu correo con nadie más.
+
+          .mb-3
+            label.form-label(for="exampleInputPassword1") Contraseña
+            input#exampleInputPassword1.form-control(type="password" name="password" required)
+
+          button.btn.btn-primary.w-100(type="submit") Iniciar sesión

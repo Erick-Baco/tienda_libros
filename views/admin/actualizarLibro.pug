@@ -1,44 +1,76 @@
 doctype html
 html
+  head
+    link(rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css")
+    link(rel="preconnect" href="https://fonts.googleapis.com")
+    link(rel="preconnect" href="https://fonts.gstatic.com" crossorigin)
+    link(href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet")
+    script(defer src="/js/formValidation.js")
+    style.
+      body {
+        background: linear-gradient(135deg, #C6A684, #C6B184);
+        font-family: 'Poppins', sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 50px;
+      }
+      .container {
+        background-image: url("https://i.pinimg.com/736x/89/9e/8b/899e8b17d1bf998e01012ae2f437055e.jpg");
+        background-size: cover;
+        position: relative;
+        padding: 25px;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.7);
+        max-width: 1000px;
+        width: 100%;
+        box-sizing: border-box;
+        text-align: center;
+        margin: 50px;
+      }
   body
-    h2 Actualizar libro
+    .container
+      h2 Actualizar libro
 
-    if error
-      .alert.alert-danger #{error}
+      if error
+        .alert.alert-danger #{error}
 
-    form(method="POST" action=`/admin/actualizarLibro/${valores.id_libro}` enctype="multipart/form-data")
-      fieldset 
-        .form-group
-          label(for="titulo") Título:
-          input.form-control(type="text" name="titulo" value=valores.titulo required)
+      form(method="POST" action=`/admin/actualizarLibro/${valores.id_libro}` enctype="multipart/form-data")
+        fieldset
+          .mb-3
+            label(for="titulo") Título:
+            input.form-control(type="text" name="titulo" value=valores.titulo required)
 
-        .form-group
-          label(for="autor") Autor:
-          input.form-control(type="text" name="autor" value=valores.autor required)
+          .mb-3
+            label(for="autor") Autor:
+            input.form-control(type="text" name="autor" value=valores.autor required)
 
-        .form-group
-          label(for="editorial") Editorial:
-          input.form-control(type="text" name="editorial" value=valores.editorial required)
+          .mb-3
+            label(for="editorial") Editorial:
+            input.form-control(type="text" name="editorial" value=valores.editorial required)
 
-        .form-group
-          label(for="ISBN") ISBN:
-          input.form-control(type="text" name="ISBN" value=valores.ISBN required)
+          .mb-3
+            label(for="ISBN") ISBN:
+            input.form-control(type="text" name="ISBN" value=valores.ISBN required)
 
-        .form-group
-          label(for="categoria") Categoria:
-          input.form-control(type="text" name="categoria" value=valores.categoria required)  
+          .mb-3
+            label(for="categoria") Categoría:
+            input.form-control(type="text" name="categoria" value=valores.categoria required)
 
-        .form-group
-          label(for="precio") Precio:
-          input.form-control(type="number" name="precio" step="0.01" value=valores.precio required)
+          .mb-3
+            label(for="precio") Precio:
+            input.form-control(type="number" name="precio" step="0.01" value=valores.precio required)
 
-        .form-group
-          label(for="stock") Stock:
-          input.form-control(type="number" name="stock" value=valores.stock required)
+          .mb-3
+            label(for="stock") Stock:
+            input.form-control(type="number" name="stock" value=valores.stock required)
 
-        .form-group
-          label(for="imagen") Imagen del libro:
-          input.form-control(type="file" name="imagen")
+          .mb-3
+            label(for="imagen") Imagen del libro:
+            input.form-control(type="file" name="imagen")
 
-        .form-group
-          button.btn.btn-primary(type="submit" class="button") Guardar cambios
+          .mb-3
+            button.btn.btn-primary(type="submit") Guardar cambios
+
+    script(src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js")
