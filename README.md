@@ -35,16 +35,13 @@ Asegúrate de tener instalado lo siguiente:
    ```sh
    cd tienda_libros
    ```
-3. Instala las dependencias necesarias:
-   ```sh
-   npm install
-   ```
-4. Crea un archivo `.env` en la raíz del proyecto y configura las variables necesarias (ejemplo):
+3. Crea un archivo `.env` en la raíz del proyecto y configura las variables necesarias (ejemplo):
    ```env
-   DB_HOST=localhost
-   DB_USER=tu_usuario
-   DB_PASSWORD=tu_contraseña
-   DB_NAME=nombre_de_la_base
+   DB_USER = tu_usuario
+   DB_PASSWORD = tu_contraseña
+   DB_DATABASE = nombre_de_la_base
+   DB_DIALEC = mariadb
+   DB_PORT = 3306
    ```
 
 ## Dependencias
@@ -68,7 +65,11 @@ Para iniciar el servidor, ejecuta:
 
 ```sh
 mysql -u root -p
+```
+```sh
 source esquema.sql
+```
+```sh
 npm run server
 ```
 
@@ -82,31 +83,18 @@ Por defecto, el servidor se ejecutará en `http://localhost:4000/`.
 ├── routes/             # Definición de rutas
 ├── models/             # Modelos de base de datos con Sequelize
 ├── controllers/        # Lógica del negocio
+├── middleware/         # Manejo de seguridad en inicio de sesion
 ├── config/             # Configuración de base de datos y entorno
 ├── app.js              # Punto de entrada principal
 ├── .env                # Variables de entorno
 ├── esquema.sql         # script para ejecutar la base de datos
+├── docker-compose.yml  # contenedor docker
 └── package.json        # Configuración del proyecto y dependencias
 ```
-
-## Contribución
-
-Si deseas contribuir a este proyecto, por favor sigue estos pasos:
-
-1. Realiza un fork del repositorio.
-2. Crea una nueva rama (`git checkout -b feature-nueva`).
-3. Realiza tus cambios y haz commit (`git commit -m 'Descripción del cambio'`).
-4. Envía tus cambios (`git push origin feature-nueva`).
-5. Abre un Pull Request.
 
 ## DOCUMENTACION
 
 https://docs.google.com/document/d/1Np10Qsne_sjwfkMKGd2I90kt-4tdwE6jBTfspzBkaC0/edit?usp=sharing
 
-## Licencia
-
-Este proyecto está bajo la licencia MIT. Puedes consultar el archivo `LICENSE` para más detalles.
-
 ---
 
-¡Gracias por contribuir y usar este proyecto! 🚀
