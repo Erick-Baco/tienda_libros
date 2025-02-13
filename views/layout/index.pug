@@ -3,16 +3,22 @@ html
   head
     meta(charset="UTF-8")
     meta(name="viewport" content="width=device-width, initial-scale=1.0")
-    title Mi Aplicación
-    link(rel="stylesheet", href="/css/style.css")  
-  body
-    header
-      h1 Bienvenido a Mi Aplicación
-      nav
-        ul
-          li: a(href="/") Inicio
-          li: a(href="/inicio") Página de Inicio
-    main
+    title Libros FES
+
+    link(rel="stylesheet", href="/bootstrap/css/bootstrap.min.css")
+    script(src="/bootstrap/js/bootstrap.bundle.min.js")
+    link(rel="stylesheet", href="/css/colors.css")  
+    style. 
+      .img{
+        width: 100px;
+        height: auto;
+      } 
+
+   
+  body.container.vh-100.m-0.p-0
+    include header
+    main.row.min-vw-100.vh-100.p-0.m-0
+      include nav
       block content
-    footer
-      p &copy; 2025 Mi Aplicación
+
+

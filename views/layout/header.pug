@@ -1,0 +1,59 @@
+.row.vw-100.m-0.p-0
+  .col.p-0.m-0
+    nav.navbar.navbar-expand-lg
+      .container-fluid.d-flex.justify-content-end.align-items-center
+        ul.navbar-nav.d-flex.align-items-center
+          li.nav-item
+            img.user-icon(src="/image/user.png" alt="Logo")
+          li.nav-item.dropdown
+            a.nav-link.dropdown-toggle.text-white(href="#" role="button" data-bs-toggle="dropdown") Usuario
+            ul.dropdown-menu.dropdown-menu-end
+              if loggedin
+                li
+                  form(role="logout" action="/logout" method="get") 
+                    button.dropdown-item(type="submit") Cerrar Sesión
+                    if loggedin.id_rol == 1
+                      a.dropdown-item(href="/admin/leerLibro") Ventana Administrador
+
+              else
+                li
+                  a.dropdown-item(href="/login") Iniciar Sesión
+          if loggedin
+            if nombre
+              li.nav-item
+                p.welcome-message.mb-0 Hola, #{nombre}
+
+style.
+  .navbar {
+    background-color: #AB907A; /* Café oscuro */
+    padding: 10px 20px;
+    width: 100%;
+  }
+
+  .user-icon {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+  }
+
+  .dropdown-menu {
+    background-color: #6D4C41; /* Café intermedio */
+    border-radius: 5px;
+  }
+
+  .dropdown-item {
+    color: white;
+    padding: 8px 12px;
+    transition: background 0.3s;
+  }
+
+  .dropdown-item:hover {
+    background-color: #8D6E63; /* Café más claro */
+  }
+
+  .welcome-message {
+    color: white;
+    font-size: 1rem;
+  }
+
+

@@ -1,0 +1,84 @@
+.col-2.p-0
+  .sidebar.d-flex.flex-column
+    a.brand.text-decoration-none.text-dark(href="/")
+      h4.mb-4 Book Manager
+    hr
+    ul.nav.flex-column
+      li.nav-item 
+        h5.mb-3 Buscador
+      li.nav-item 
+        form.container-fluid.needs-validation(role="search" action="/search" method="post")
+          .input-group.mb-3
+            input.form-control.search-input(type="text" placeholder="Escribe aquí" name="query" required)
+          .form-group
+            .form-check
+              input.form-check-input(type="radio" name="categoria" id="categoria3" value="titulo" required)
+              label.form-check-label(for="categoria3") Título
+            .form-check
+              input.form-check-input(type="radio" name="categoria" id="categoria1" value="categoria" required)
+              label.form-check-label(for="categoria1") Categoría
+            .form-check
+              input.form-check-input(type="radio" name="categoria" id="categoria2" value="autor" required)
+              label.form-check-label(for="categoria2") Autor
+          .mt-3
+            button.btn.search-btn(type="submit") 
+              i.bi.bi-search.me-2 
+              | Buscar
+
+style.
+  .sidebar {
+    background-color: #AB907A;
+    color: #5D4037;
+    padding: 20px;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .brand {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  .search-input {
+    border: 1px solid #A1887F;
+    border-radius: 5px;
+    background-color: #EFEBE9;
+    color: #5D4037;
+  }
+
+  .form-check {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+
+  .form-check-input {
+    margin-right: 10px;
+    accent-color: #8D6E63;
+  }
+
+  .search-btn {
+    background-color: #8D6E63;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+  }
+
+  .search-btn i {
+    margin-right: 5px;
+  }
+
+  .search-btn:hover {
+    background-color: #6D4C41;
+  }
+
+
+            

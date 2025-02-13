@@ -22,12 +22,13 @@ services:
     container_name: mariadb_container
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: mypassword
-      MYSQL_DATABASE: mydatabase
+      MYSQL_ROOT_PASSWORD: 1234
+      MYSQL_DATABASE: libreria
     ports:
       - "3306:3306"
     volumes:
       - mariadb_data:/var/lib/mysql
+      - ./:/docker-entrypoint-initdb.d
 
 volumes:
   mariadb_data:

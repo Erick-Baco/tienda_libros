@@ -1,6 +1,88 @@
 extends ./layout/index.pug
 
 block content
-  h2 Página de Inicio
-  p Bienvenido a la página de inicio. Aquí puedes encontrar información relevante.
-  a(href="/") Volver al inicio
+  style.
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-image: url("https://i.pinimg.com/736x/c0/ac/50/c0ac50a9a5db29df7aab2363539e870b.jpg");
+      background-size: cover;
+      background-position: center;
+      color:rgb(8, 7, 6);
+    }
+
+    .container {
+      max-width: 90%;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      margin: 30px;
+      background-color: transparent; 
+    }
+
+ 
+
+    .table thead {
+      background-color: rgba(209, 190, 148, 0.85); 
+      color: #fff;
+    }
+
+    .table th,
+    .table td {
+      padding: 15px;
+      text-align: center;
+      vertical-align: middle;
+      color:rgb(8, 8, 7); 
+      background-color: transparent; 
+      border-color: rgba(255, 255, 255, 0.3); 
+    }
+
+    .table img {
+      max-width: 80px;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+  
+    .table-danger {
+      background-color: rgba(161, 42, 52, 0.5) !important; 
+    }
+
+    .table-warning {
+      background-color: rgba(255, 243, 205, 0.5) !important; /
+    }
+
+    .table tbody tr:hover {
+      background-color: rgba(0, 0, 0, 0.1);
+      transition: 0.3s ease-in-out;
+    }
+
+  .col.p-0
+    .container.d-flex.justify-content-center.align-items-center.p-5
+      table.table.table-hover
+        thead 
+          tr
+            th(scope="col") #
+            th(scope="col") Imagen
+            th(scope="col") Título
+            th(scope="col") Autor 
+            th(scope="col") Editorial 
+            th(scope="col") ISBN
+            th(scope="col") Categoría
+            th(scope="col") Precio
+            th(scope="col") Stock
+        tbody 
+          each libro in libros
+            - var clase = libro.stock === 0 ? 'table-danger' : (libro.stock < 5 ? 'table-warning' : '')
+            tr(class=clase)
+              th(scope="row")= libro.id_libro
+              td 
+                img.img-fluid(src=libro.imagen, alt="Imagen de " + libro.titulo)
+              td= libro.titulo
+              td= libro.autor
+              td= libro.editorial
+              td= libro.ISBN
+              td= libro.categoria
+              td #{'$' + libro.precio}
+              td= libro.stock
