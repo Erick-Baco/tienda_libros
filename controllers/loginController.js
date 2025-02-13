@@ -33,7 +33,6 @@ const logear = async (req, res) => {
             return res.render("login/log", { error: "Correo o contraseña incorrectos" });
         }
 
-
         req.session.user = {
             id: user.id_usuario,
             nombre: user.nombre,
