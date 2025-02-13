@@ -29,7 +29,7 @@ Asegúrate de tener instalado lo siguiente:
 
 1. Clona este repositorio:
    ```sh
-   git clone <https://github.com/Erick-Baco/tienda_libros.git>
+   git clone https://github.com/Erick-Baco/tienda_libros.git
    ```
 2. Accede al directorio del proyecto:
    ```sh
