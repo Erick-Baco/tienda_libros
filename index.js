@@ -53,7 +53,8 @@ app.use(function(req, res, next) {
 
 
 // Rutas
-app.use("/", inicio);
+app.use("/", router_Login);
+app.use("/home", inicio)
 app.use("/login", router_Login);
 app.use("/logout", router_Logout);
 app.use("/categorias", router_Categorias);

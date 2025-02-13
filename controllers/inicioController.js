@@ -7,7 +7,7 @@ import session from "express-session";
 const inicio = async (req, res) => {
     const libros = await Libro.findAll({});
     // console.log(libros);
-    console.log(req.session);
+    // console.log(req.session);
     
     res.render("inicio", { libros });
 };

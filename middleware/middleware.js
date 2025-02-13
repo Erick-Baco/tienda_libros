@@ -1,6 +1,17 @@
 import session from "express-session";
 import { nextTick } from "process";
 
+const isAuthenticated = async(req, res, next) =>{
+    const user = req.session.user
+    if (user){
+        
+        return next()
+
+    }else{
+        res.redirect("/login"); 
+    }
+}
+
 const authAdmin = (req, res, next) =>{
 
     // console.log("Id Rol " + req.session.user.id_rol); // Id Rol 1 - Id Rol 2 - Id Rol Undefined
@@ -21,4 +32,4 @@ const authAdmin = (req, res, next) =>{
 }
 
 
-export {authAdmin}
+export {authAdmin, isAuthenticated}
