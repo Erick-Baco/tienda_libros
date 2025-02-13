@@ -24,6 +24,7 @@ Asegúrate de tener instalado lo siguiente:
 
 - [Node.js](https://nodejs.org/) (versión recomendada: 20.18.2 o superior)
 - [MariaDB](https://mariadb.org/) para la base de datos 10.11.10 o superior
+- .[Docker](https://www.docker.com/) para ejecutar con docker
 
 ## Instalación
 
@@ -43,21 +44,16 @@ Asegúrate de tener instalado lo siguiente:
    DB_DIALEC = mariadb
    DB_PORT = 3306
    ```
+4. Para ejecutar en docker configurar el archivo `.env` como el docker-compose.yml
 
-## Dependencias
-
-Este proyecto utiliza las siguientes librerías:
-
-- **bcryptjs**: Para el hashing de contraseñas.
-- **dotenv**: Para la gestión de variables de entorno.
-- **ejs**: Motor de plantillas basado en JavaScript.
-- **express**: Framework para el desarrollo del servidor.
-- **express-session**: Manejo de sesiones en Express.
-- **express-validator**: Middleware para la validación de datos en Express.
-- **mariadb**: Conector para la base de datos MariaDB.
-- **multer**: Middleware para la gestión de archivos en Express.
-- **pug**: Otro motor de plantillas para la renderización de vistas.
-- **sequelize**: ORM para manejar la base de datos de forma estructurada.
+   ```env
+   DB_HOST = db
+   DB_USER = root
+   DB_PASSWORD = 1234
+   DB_DATABASE = libreria
+   DB_DIALEC = mariadb
+   DB_PORT = 3306
+   ```
 
 ## Uso
 
@@ -74,6 +70,28 @@ npm run server
 ```
 
 Por defecto, el servidor se ejecutará en `http://localhost:4000/`.
+
+Para iniciar mediante el contenedor, ejecuta:
+
+```sh
+docker-compose up --build
+```
+Por defecto, el acceso al contenedor será en `http://localhost:3000/`.
+
+## Dependencias
+
+Este proyecto utiliza las siguientes librerías:
+
+- **bcryptjs**: Para el hashing de contraseñas.
+- **dotenv**: Para la gestión de variables de entorno.
+- **ejs**: Motor de plantillas basado en JavaScript.
+- **express**: Framework para el desarrollo del servidor.
+- **express-session**: Manejo de sesiones en Express.
+- **express-validator**: Middleware para la validación de datos en Express.
+- **mariadb**: Conector para la base de datos MariaDB.
+- **multer**: Middleware para la gestión de archivos en Express.
+- **pug**: Otro motor de plantillas para la renderización de vistas.
+- **sequelize**: ORM para manejar la base de datos de forma estructurada.
 
 ## Estructura del Proyecto
 
