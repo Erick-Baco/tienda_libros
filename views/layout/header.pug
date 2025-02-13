@@ -10,8 +10,11 @@
             ul.dropdown-menu.dropdown-menu-end
               if loggedin
                 li
-                  form(role="logout" action="/logout" method="post") 
+                  form(role="logout" action="/logout" method="get") 
                     button.dropdown-item(type="submit") Cerrar Sesión
+                    if loggedin.id_rol == 1
+                      a.dropdown-item(href="/admin/leerLibro") Ventana Administrador
+
               else
                 li
                   a.dropdown-item(href="/login") Iniciar Sesión

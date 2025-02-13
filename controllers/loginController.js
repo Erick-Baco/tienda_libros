@@ -51,7 +51,6 @@ const logear = async (req, res) => {
             // Middleware para verificar la sesión y mandar datos de sesion a pug
             res.locals.loggedin = req.session.user;
             
-
             if (user.id_rol == 2) {
                 return res.render("inicio", { nombre: user.nombre, libros: libros});
             } else if (user.id_rol == 1) {

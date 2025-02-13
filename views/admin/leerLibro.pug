@@ -96,15 +96,30 @@ html
       .btn-logout:hover {
         background: #bb2d3b;
       }
+      .btn-back-home{
+        background:#06244d; /* Rojo Bootstrap */
+        padding: 10px 15px;
+        text-decoration: none;
+        color: white;
+        border-radius: 5px;
+        font-weight: bold;
+        float: right;
+      }
+      .btn-back-home:hover{
+        background: #35577D;
+      }
 
   body
+
     .container
+      h1 GESTOR DE LIBROS
       // Encabezado con botón de cerrar sesión
       .d-flex.justify-content-between.align-items-center
-        h1 GESTOR DE LIBROS
         a.btn-logout(href="/logout") Cerrar Sesión
-
-      a.btn-add(href="/admin/crearLibro") Agregar Libro
+        a.btn-add(href="/admin/crearLibro") Agregar Libro
+        if loggedin
+          form(role="logout" action="/home" method="get") 
+            button.btn-back-home(type="submit") Volver a Inicio
 
       table.table.table-hover
         thead
@@ -136,6 +151,7 @@ html
               td.text-center
                 a.btn.btn-edit(href=`/admin/actualizarLibro/${libro.id_libro}`) Editar
               td.text-center
-                form(method="post" action="/admin/eliminarLibro" onsubmit="return confirm('¿Eliminar este libro?')") 
+                form(method="post" action="/admin/eliminarLibro" onsubmit="return confirm('¿Eliminar este libro?')") Título
+
                   input(type="hidden" name="id_libro" value=libro.id_libro)
                   button.btn.btn-delete(type="submit") Eliminar
